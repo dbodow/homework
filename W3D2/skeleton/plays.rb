@@ -18,7 +18,7 @@ class Play
   def self.find_by_title(title)
     play = PlayDBConnection.instance.execute(<<-SQL, title)
       SELECT
-        *
+        plays.*
       FROM
         plays
       WHERE
