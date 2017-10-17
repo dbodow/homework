@@ -14,6 +14,7 @@ end
 class Play
   attr_accessor :title, :year, :playwright_id
 
+  # Play:Find_by_tite : string => Play
   def self.find_by_title(title)
     play = PlayDBConnection.instance.execute(<<-SQL, title)
       SELECT
@@ -32,8 +33,10 @@ class Play
         *
       FROM
         plays
+      JOIN
+        playwrights ON plays.playwright_id = playwrights.id
       WHERE
-        name = ?;
+        playwrights.name = ?;
     SQL
     Play.new(play[0])
   end
