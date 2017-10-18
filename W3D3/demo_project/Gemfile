@@ -41,7 +41,17 @@ group :development, :test do
   gem 'selenium-webdriver'
 end
 
-group :development do
+group :development do	
+  # Run 'bundle exec annotate' in terminal to add helpful comments to models.
+  gem 'annotate'
+  # These two give you a great error handling page.
+  # But make sure to never use them in production!
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  # Gotta have byebug...
+  gem 'byebug'
+  # pry > irb
+  gem 'pry-rails'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
